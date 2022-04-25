@@ -24,3 +24,25 @@ export interface partyModel {
     state: string;
     city: string;
 }
+
+export interface productModel {
+    name: string;
+    sku: string;
+    alias: string;
+    description: string;
+    purchaseRate: string;
+    sellRate: string;
+    sizes: Array<[]>;
+    colors: Array<[]>;
+}
+
+export interface responseProductModel {
+    body: object;
+    headers: any;
+    ok: boolean;
+    status: number;
+    statusText: string;
+    type: number;
+    url: string;
+
+}

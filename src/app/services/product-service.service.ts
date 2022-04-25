@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { catchError, map, Observable, Subject, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { productModel, responseProductModel } from './interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,15 @@ export class ProductServiceService {
 
   constructor(private http: HttpClient) { }
 
-  product(data: object): Observable<any> {
+  product(data: productModel) {
+
     return this.http.post(`${this.API_URL}`, data, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
     })
   }
-  productDetail(): Observable<any> {
+  productDetail() {
 
     return this.http.get(`${this.API_URL}`, {
       headers: new HttpHeaders({

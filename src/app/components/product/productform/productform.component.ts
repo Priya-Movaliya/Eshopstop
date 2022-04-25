@@ -4,6 +4,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { ProductServiceService } from 'src/app/services/product-service.service';
+import { productModel } from 'src/app/services/interface';
 
 export interface Colors {
   [index: number]: string;
@@ -16,6 +17,7 @@ export interface Colors {
 })
 export class ProductformComponent implements OnInit {
   formDetail: FormGroup;
+  pdata!: productModel;
   categoryList: any;
   checkValue: String = "";
   addOnBlur = true;
@@ -23,7 +25,7 @@ export class ProductformComponent implements OnInit {
   colorsData: Colors[] = [];
   sizesData: Colors[] = [];
 
-  constructor(private fb: FormBuilder, private http: HttpServiceService,private productService:ProductServiceService) {
+  constructor(private fb: FormBuilder, private http: HttpServiceService, private productService: ProductServiceService) {
 
     this.formDetail = this.fb.group(
       {
@@ -90,10 +92,18 @@ export class ProductformComponent implements OnInit {
     this.formDetail.patchValue({ sizes: this.sizesData })
     console.log(this.formDetail.value);
 
-    this.productService.product(this.formDetail.value).subscribe(res => {
+    this.pdata = this.formDetail.value;
+
+    this.productService.product(this.pdata).subscribe(res => {
+      console.log("hello");
       console.log(res);
 
-    })
+
+    }, (err: any) => {
+      console.log("something went wrong");
+
+    }
+    )
 
   }
 
@@ -101,7 +111,7 @@ export class ProductformComponent implements OnInit {
 
     this.http.category().subscribe(res => {
       console.log(res);
-      
+
       this.categoryList = res.data;
       console.log(res.data[0].name);
 
