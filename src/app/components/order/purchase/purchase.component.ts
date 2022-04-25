@@ -14,8 +14,8 @@ export class PurchaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderService.orderDetail().subscribe(res => {
-      console.log(res.data.buyerSKU);
-      this.buyerPartySKU = res.data.partyBuyerSKU;
+      console.log(res.data.buyerPartySKU);
+      this.buyerPartySKU = res.data.buyerPartySKU;
     })
   }
 }

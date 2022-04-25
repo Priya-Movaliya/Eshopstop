@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { partyModel, responsePartyModel, ViewModel } from './interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class PartyServiceService {
 
   constructor(private http: HttpClient) { }
 
-  party(data: object): Observable<any> {
+  party(data: partyModel) {
 
     return this.http.post(`${this.API_URL}`, data, {
       headers: new HttpHeaders({
@@ -34,16 +35,16 @@ export class PartyServiceService {
       )
   }
 
-  partyTable(pageSize: number | undefined, pageIndex: any, search: string): Observable<any> {
+  partyTable(pageSize: number | undefined, pageIndex: any, search: string): Observable<responsePartyModel> {
 
-    return this.http.get(`${this.API_URL}?pageNo=${pageIndex}&size=${pageSize}&search=${search}`, {
+    return this.http.get<responsePartyModel>(`${this.API_URL}?pageNo=${pageIndex}&size=${pageSize}&search=${search}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
     });
   }
 
-  deleteParty(id: string): Observable<any> {
+  deleteParty(id: string) {
     return this.http.delete(`${this.API_URL}/${id}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
@@ -51,7 +52,7 @@ export class PartyServiceService {
     })
   }
 
-  updateParty(id: string, data: any): Observable<any> {
+  updateParty(id: string, data: any) {
 
     return this.http.put(`${this.API_URL}/${id}`, data, {
       headers: new HttpHeaders({
@@ -59,8 +60,8 @@ export class PartyServiceService {
       })
     })
   }
-  viewParty(id: string): Observable<any> {
-    return this.http.get(`${this.API_URL}/${id}`, {
+  viewParty(id: string): Observable<ViewModel> {
+    return this.http.get<ViewModel>(`${this.API_URL}/${id}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })

@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
       this.partyData = res.data.products
       this.pageSize = res.data.totalRecords;
       length = res.data.totalRecords;
-      console.log(res.data);
+      console.log(res);
 
     })
   }

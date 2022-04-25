@@ -48,7 +48,7 @@ export class CourierformComponent implements OnInit {
 
   ngOnInit(): void {
     this.courierService.courierDetail().subscribe(res => {
-      console.log(res.data.orderId);
+      console.log(res);
       this.orderIdData = res.data.orderId;
     })
     this.http.getState().subscribe(res => {

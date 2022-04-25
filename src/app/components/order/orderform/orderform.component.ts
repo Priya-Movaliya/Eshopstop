@@ -61,7 +61,7 @@ export class OrderformComponent implements OnInit {
     this.orderService.orderDetail().subscribe(res => {
       console.log(res);
       
-      console.log(res.data.buyerSKU);
+      // console.log(res.data.buyerSKU);
       this.productSKU = res.data.productSKU;
 
       if (this.dataType === 'buyer')

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { courierModel, responseCourierModel, ViewModel } from './interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +16,18 @@ export class CourierServiceService {
 
   constructor(private http: HttpClient) { }
 
-  courier(data: object): Observable<any> {
+  courier(data: object): Observable<courierModel> {
 
-    return this.http.post(`${this.API_URL}`, data, {
+    return this.http.post<courierModel>(`${this.API_URL}`, data, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
     });
   }
 
-  courierDetail(): Observable<any> {
+  courierDetail(): Observable<responseCourierModel> {
 
-    return this.http.get(`${this.API_URL}`, {
+    return this.http.get<responseCourierModel>(`${this.API_URL}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
@@ -34,16 +35,16 @@ export class CourierServiceService {
   }
 
 
-  courierTable(pageSize: number | undefined, pageIndex: any, search: string): Observable<any> {
+  courierTable(pageSize: number | undefined, pageIndex: any, search: string): Observable<responseCourierModel> {
 
-    return this.http.get(`${this.API_URL}?pageNo=${pageIndex}&size=${pageSize}&search=${search}`, {
+    return this.http.get<responseCourierModel>(`${this.API_URL}?pageNo=${pageIndex}&size=${pageSize}&search=${search}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
     });
   }
 
-  deleteCourier(id: string): Observable<any> {
+  deleteCourier(id: string) {
     return this.http.delete(`${this.API_URL}/${id}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
@@ -51,15 +52,15 @@ export class CourierServiceService {
     })
   }
 
-  updateCourier(id: string, data: any): Observable<any> {
+  updateCourier(id: string, data: any) {
     return this.http.put(`${this.API_URL}/${id}`, data, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
     })
   }
-  viewCourier(id: string): Observable<any> {
-    return this.http.get(`${this.API_URL}/${id}`, {
+  viewCourier(id: string): Observable<ViewModel> {
+    return this.http.get<ViewModel>(`${this.API_URL}/${id}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })

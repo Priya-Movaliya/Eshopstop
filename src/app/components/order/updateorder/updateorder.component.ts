@@ -75,7 +75,7 @@ export class UpdateorderComponent implements OnInit {
     this.orderService.orderDetail().subscribe(res => {
       console.log(res);
 
-      console.log(res.data.buyerSKU);
+      console.log(res.data.buyerPartySKU);
       this.productSKU = res.data.productSKU;
 
       if (this.dataType === 'buyer')
@@ -164,7 +164,7 @@ export class UpdateorderComponent implements OnInit {
     this.formDetail.patchValue({ sizes: this.sizesData })
     console.log(this.formDetail.value);
 
-    this.orderService.order(this.formDetail.value).subscribe(res => {
+    this.orderService.updateOrder(this.orderData._id, this.formDetail.value).subscribe(res => {
       console.log(res);
     })
 

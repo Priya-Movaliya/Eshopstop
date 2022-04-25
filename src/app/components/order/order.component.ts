@@ -100,6 +100,8 @@ export class OrderComponent implements OnInit {
 
   visibility(id: string) {
     this.orderService.viewOrder(id).subscribe(res => {
+      console.log(res);
+
       console.log(res.data);
       // this.partyData = res.data
       this.orderService.passOrderData(res.data)

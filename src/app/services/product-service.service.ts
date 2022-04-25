@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, Subject, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { productModel, responseProductModel } from './interface';
+import { productModel, responseProductModel, ViewModel } from './interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +34,9 @@ export class ProductServiceService {
   }
 
 
-  productTable(pageSize: number | undefined, pageIndex: any, search: string): Observable<any> {
+  productTable(pageSize: number | undefined, pageIndex: any, search: string): Observable<responseProductModel> {
 
-    return this.http.get(`${this.API_URL}?pageNo=${pageIndex}&size=${pageSize}&search=${search}`, {
+    return this.http.get<responseProductModel>(`${this.API_URL}?pageNo=${pageIndex}&size=${pageSize}&search=${search}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })
@@ -63,10 +63,10 @@ export class ProductServiceService {
     })
   }
 
-  viewProduct(id: string): Observable<any> {
+  viewProduct(id: string): Observable<ViewModel> {
     console.log("hello");
 
-    return this.http.get(`${this.API_URL}/${id}`, {
+    return this.http.get<ViewModel>(`${this.API_URL}/${id}`, {
       headers: new HttpHeaders({
         'Authorization': `${localStorage.getItem('secret_token')}`
       })

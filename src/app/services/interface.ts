@@ -1,3 +1,4 @@
+
 export class registrationModel {
     firstName!: String;
     lastName!: String;
@@ -24,6 +25,15 @@ export interface partyModel {
     state: string;
     city: string;
 }
+export interface dataResponseParty {
+    vendors: object;
+    totalRecords: number;
+}
+
+export interface responsePartyModel {
+    data: dataResponseParty;
+    status: boolean;
+}
 
 export interface productModel {
     name: string;
@@ -36,13 +46,68 @@ export interface productModel {
     colors: Array<[]>;
 }
 
-export interface responseProductModel {
-    body: object;
-    headers: any;
-    ok: boolean;
-    status: number;
-    statusText: string;
-    type: number;
-    url: string;
+export interface dataResponseProduct {
+    products: object;
+    totalRecords: number;
+}
 
+export interface responseProductModel {
+    data: dataResponseProduct;
+    status: boolean;
+}
+
+export interface orderModel {
+
+    colors: Array<any>;
+    date: string;
+    discount: string;
+    name: string;
+    orderId: number;
+    partySku: string;
+    paymentMode: string;
+    paymentStatus: string;
+    productSku: string;
+    quantity: number
+    rate: number
+    shippingMode: string;
+    sizes: Array<any>;
+    total: number;
+}
+export interface dataResponseOrder {
+    order: object;
+    buyerPartySKU: Array<object>;
+    productSKU: Array<object>;
+    sellerPartySKU: Array<object>;
+    totalRecords: number;
+}
+
+export interface responseOrderModel {
+    data: dataResponseOrder;
+    status: boolean;
+}
+
+export interface ViewModel {
+    data: object;
+    status: boolean;
+}
+
+export interface courierModel {
+    companyName: string;
+    fromAddress: object;
+    orderId: string;
+    paymentMode: string;
+    shippingCharge: string;
+    toAddress: object;
+    trackingId: string;
+}
+
+export interface dataResponseCourier {
+    courier: object;
+    totalRecords: number;
+    orderId: Array<object>;
+}
+
+export interface responseCourierModel {
+    data: dataResponseCourier;
+    status: boolean;
 }
