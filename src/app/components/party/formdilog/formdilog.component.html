@@ -1,0 +1,160 @@
+<div class="formContainer">
+    <form [formGroup]="formDetail" (ngSubmit)="submitPartyDetails()" class="partyForm" fxLayout="column">
+
+        <div class="header">Party Details</div>
+
+        <div class="firstField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Party Name</mat-label>
+                <input type="text" matInput formControlName="name">
+                <mat-error *ngIf="formValidation('name')?.hasError('required')">
+                    Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>SKU</mat-label>
+                <input type="text" matInput formControlName="sku">
+                <mat-error *ngIf="formValidation('sku')?.hasError('required')">
+                    SKU is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div class="secondField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Alias Name</mat-label>
+                <input matInput type="text" formControlName="alias">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Group Name</mat-label>
+                <input matInput type="text" formControlName="groupName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <mat-select type="text" formControlName="type">
+                    <mat-option value="Buyer">Buyer</mat-option>
+                    <mat-option value="Seller">Seller</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formValidation('type')?.hasError('required')">
+                    Type is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="thirdField row" fxLayout="row" fxLayoutGap="10px">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. email@example.com" formControlName="email">
+                <mat-error *ngIf="formValidation('email')?.hasError('email') && !formValidation('email')?.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="formValidation('email')?.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Contact</mat-label>
+                <input matInput type="text" formControlName="contactNo" #number placeholder="Ex. 9410598765">
+                <!-- <mat-hint align="end">{{number.value.length}} / 10</mat-hint> -->
+                <mat-error *ngIf="formValidation('contact')?.hasError('required')">
+                    Contact is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="formValidation('contact')?.hasError('pattern')">
+                    Enter Valid Contact
+                </mat-error>
+
+            </mat-form-field>
+
+        </div>
+
+        <div class="fourthField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Aadhaar Card</mat-label>
+                <input matInput type="text" #adhar formControlName="adharcardNo">
+                <!-- <mat-hint align="end">{{adhar.value.length}} / 12</mat-hint> -->
+                <!-- <mat-error *ngIf="formValidation('adhar')?.hasError('pattern')">
+                    Enter Valid Aadhaar Number
+                </mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>PAN Card</mat-label>
+                <input matInput #pan formControlName="pancardNo">
+                <!-- <mat-hint align="end">{{pan.value.length}} / 10</mat-hint> -->
+                <!-- <mat-error *ngIf="formValidation('pan')?.hasError('pattern')">
+                    Enter Valid PAN Number
+                </mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>GST Number</mat-label>
+                <input matInput #gstno maxlength="24" formControlName="gstNo">
+                <mat-hint align="end">{{gstno.value.length}} / 24</mat-hint>
+                <mat-error *ngIf="formValidation('gst')?.hasError('minlength')">
+                    Enter Valid GST Number
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+        <div class="fifthField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Address</mat-label>
+                <input matInput type="text" formControlName="address">
+                <mat-error *ngIf="formValidation('address')?.hasError('required')">
+                    Address is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Area</mat-label>
+                <input matInput type="text" formControlName="area">
+            </mat-form-field>
+
+        </div>
+
+        <div class="sixthField row" fxLayout="row" fxLayoutGap="10px">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select #State  formControlName="state">
+                    <mat-option (click)="submit(State.value)" value="{{state._id}}" *ngFor="let state of stateData">{{state.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formValidation('state')?.hasError('required')">
+                    State is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city">
+                    <mat-option value="{{city._id}}" *ngFor="let city of cityData">{{city.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formValidation('city')?.hasError('required')">
+                    City is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>PIN code</mat-label>
+                <input matInput type="number" formControlName="pincode">
+            </mat-form-field>
+
+        </div>
+
+        <div class="seventhField" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <button class="close" mat-button mat-dialog-close>Close</button>
+            <button class="submit" mat-raised-button>Submit</button>
+        </div>
+
+    </form>
+</div>
+<!-- <div *ngFor="let state of stateData">
+    <div>{{state.name}}</div>
+</div> -->

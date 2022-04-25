@@ -1,0 +1,148 @@
+<div class="container" fxLayout="row" fxFill>
+
+  <!-- background image -->
+
+  <img class="container-img" fxFlex="100" src="assets/annie-spratt-pKpipZVVEC0-unsplash.jpg">
+  <div class="formContainer mat-elevation-z8" fxLayout="row" fxLayoutAlign="center center">
+
+    <!-- form field -->
+
+    <form [formGroup]="formDetail" (ngSubmit)="submitSignUpData()" fxLayout="column"
+      fxLayoutAlign="space-evenly center">
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="title">
+        <img src="assets/shopping-icon-2184065_1280.webp">
+        <h1>E SHOP STOP</h1>
+      </div>
+
+      <div fxLayout="column" fxLayoutGap="5px" class="firstName">
+        <label>FirstName <mat-error>*</mat-error></label>
+        <input type="text" formControlName="firstName">
+        <mat-error *ngIf="formValidation('firstName')?.hasError('required') && formValidation('firstName')?.touched">
+          FirstName is <strong>required</strong> </mat-error>
+      </div>
+      <div>
+
+        <!-- <mat-card>
+                    <mat-card-content>
+                      <h2 class="example-h2">Progress bar configuration</h2>
+                  
+                      <section class="example-section">
+                        <label class="example-margin">Color:</label>
+                        <mat-radio-group [(ngModel)]="color">
+                          <mat-radio-button class="example-margin" value="primary">
+                            Primary
+                          </mat-radio-button>
+                          <mat-radio-button class="example-margin" value="accent">
+                            Accent
+                          </mat-radio-button>
+                          <mat-radio-button class="example-margin" value="warn">
+                            Warn
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </section>
+                  
+                      <section class="example-section">
+                        <label class="example-margin">Mode:</label>
+                        <mat-radio-group [(ngModel)]="mode">
+                          <mat-radio-button class="example-margin" value="determinate">
+                            Determinate
+                          </mat-radio-button>
+                          <mat-radio-button class="example-margin" value="indeterminate">
+                            Indeterminate
+                          </mat-radio-button>
+                          <mat-radio-button class="example-margin" value="buffer">
+                            Buffer
+                          </mat-radio-button>
+                          <mat-radio-button class="example-margin" value="query">
+                            Query
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </section>
+                  
+                      <section class="example-section" *ngIf="mode === 'determinate' || mode === 'buffer'">
+                        <label class="example-margin">Progress:</label>
+                        <mat-slider class="example-margin" [(ngModel)]="value"></mat-slider>
+                      </section>
+                      <section class="example-section" *ngIf="mode === 'buffer'">
+                        <label class="example-margin">Buffer:</label>
+                        <mat-slider class="example-margin" [(ngModel)]="bufferValue"></mat-slider>
+                      </section>
+                    </mat-card-content>
+                  </mat-card> -->
+
+
+      </div>
+
+      <div fxLayout="column" fxLayoutGap="5px" class="lastName">
+        <label>LastName <mat-error>*</mat-error></label>
+        <input type="text" formControlName="lastName">
+        <mat-error *ngIf="formValidation('lastName')?.hasError('required') && formValidation('lastName')?.touched">
+          LastName is <strong>required</strong> </mat-error>
+      </div>
+
+      <div fxLayout="column" fxLayoutGap="5px" class="email">
+        <label>Email <mat-error>*</mat-error></label>
+        <input type="email" formControlName="email">
+        <mat-error *ngIf="formValidation('email')?.hasError('required') && formValidation('email')?.touched">
+          Email is <strong>required</strong> </mat-error>
+        <mat-error *ngIf="formValidation('email')?.hasError('pattern')">
+          Enter valid <strong>Email</strong>
+        </mat-error>
+      </div>
+
+      <div fxLayout="column" fxLayoutGap="5px" class="password">
+        <label>Password <mat-error>*</mat-error></label>
+        <input type="password" #p (keyup)="passwordValue(p.value)" formControlName="password">
+
+        <section class="example-section">
+          <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value"
+            [bufferValue]="bufferValue">
+          </mat-progress-bar>
+        </section>
+
+        <div fxLayout="row" fxLayoutAlign="space-between none">
+          <div>
+            <mat-hint *ngIf="weak" class="weak">Weak</mat-hint>
+            <mat-hint *ngIf="medium" class="medium">Medium</mat-hint>
+            <mat-hint *ngIf="strong" class="strong">Strong</mat-hint>
+
+            <mat-error *ngIf="formValidation('password')?.hasError('required') && formValidation('password')?.touched">
+              Password is <strong>required</strong>
+            </mat-error>
+            <!-- <mat-error *ngIf="formValidation('password')?.hasError('pattern')">
+                            Password must contain<strong><br>alphabet, special, character number</strong>
+                        </mat-error> -->
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+
+      <div fxLayout="column" #c fxLayoutGap="5px" class="confirmPassword">
+        <label>Confirm Password <mat-error>*</mat-error></label>
+        <input type="password" (focus)="focus()" formControlName="confirmPassword">
+
+        <mat-error
+          *ngIf="formValidation('confirmPassword')?.hasError('required') && formValidation('confirmPassword')?.touched">
+          Confirm Password is <strong> required </strong>
+        </mat-error>
+
+        <mat-error *ngIf="formValidation('confirmPassword')?.hasError('passwordVerification') && checkFocus">
+          Password and Confirm Password
+          <strong> must be same</strong>
+        </mat-error>
+      </div>
+
+      <button mat-raised-button [disabled]="formDetail.invalid">Register</button>
+
+      <div class="login" fxLayout="row" fxLayoutGap="15px">
+        <div>Already have an Account?</div>
+        <a (click)="submitSignUpData()">Login</a>
+      </div>
+
+    </form>
+  </div>
+</div>

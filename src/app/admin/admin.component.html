@@ -1,0 +1,72 @@
+<!-- <style>
+    img {
+        width: 50px;
+        height: 50px;
+        /* background: red; */
+        position: relative;
+        animation: bottomTop 2s ease-in-out infinite;
+        /* animation-name: example;
+            animation-duration: 4s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite; */
+    }
+
+    @keyframes bottomTop {
+        from {
+            top: 5px;
+            /* background-color: yellow; */
+        }
+
+        to {
+            top: px;
+            /* background-color: blue; */
+        }
+    }
+</style> -->
+
+
+<div class="main" fxLayout="column" fxFill>
+    <nav class="upperHeader mat-elevation-z4" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="7">
+        <div class="drawer" fxShow="true" fxHide.gt-sm="true">
+            <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+        </div>
+        <div fxShow="true" fxHide.lt-md="true" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+            <img src="assets/shopping-icon-2184065_1280.webp">
+            <h1>E SHOP STOP</h1>
+        </div>
+        <div class="icon">
+            <mat-icon class="account">account_circle</mat-icon>
+        </div>
+    </nav>
+    <div fxShow="true" fxHide.lt-md="true" class="lowerHeader" fxLayout="row" fxFlex="93">
+        <div class="sideBar" fxFlex="5">
+            <app-sidebar></app-sidebar>
+        </div>
+
+        <div class=" mat-elevation-z4" fxFlex="95">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+
+    <mat-drawer-container fxShow="true" fxHide.gt-sm="true" class="sideContentPart" [hasBackdrop]="true">
+        <mat-drawer #drawer [mode]="'over'">
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <img src="assets/shopping-icon-2184065_1280.webp">
+                <h1>E SHOP STOP</h1>
+            </div>
+
+            <app-sidebar></app-sidebar>
+
+        </mat-drawer>
+        <mat-drawer-content>
+
+            <!-- <router-outlet></router-outlet> -->
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+
+
+
+</div>

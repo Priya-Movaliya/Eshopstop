@@ -1,0 +1,138 @@
+<div class="formContainer">
+    <form [formGroup]="formDetail" (ngSubmit)="onClickSubmit()" class="partyForm" fxLayout="column">
+        <!-- <img src="assets/shopping-icon-2184065_1280.webp"> -->
+
+        <div class="header">Update Courier Details</div>
+
+        <div class="firstField" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Order Id</mat-label>
+                <mat-select formControlName="orderId">
+                    <mat-option value="{{id.orderId}}" *ngFor="let id of orderIdData">{{id.orderId}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input matInput formControlName="companyName">
+            </mat-form-field>
+
+        </div>
+
+        <div class="secondField" fxLayout="row" fxLayoutGap="10px">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Tracking Id</mat-label>
+                <input matInput formControlName="trackingId">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Shipping Charge</mat-label>
+                <input matInput formControlName="shippingCharge">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Payment Mode</mat-label>
+                <mat-select formControlName="paymentMode">
+                    <mat-option value="cash">Cash</mat-option>
+                    <mat-option value="payondelivery">Pay on Delivery</mat-option>
+                    <mat-option value="gpay">Gpay</mat-option>
+                    <mat-option value="paytm">Paytm</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <!-- <div class="thirdField" fxLayout="row" fxLayoutGap="10px"> -->
+
+            <form [formGroup]="fromAddress" class="thirdField" fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>State</mat-label>
+                    <mat-select #State formControlName="state">
+                        <mat-option (click)="submit(State.value)" value="{{state._id}}" *ngFor="let state of stateData">
+                            {{state.name}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="state?.hasError('required')">
+                        State is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option value="{{city._id}}" *ngFor="let city of cityData">{{city.name}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="city?.hasError('required')">
+                        City is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Street</mat-label>
+                    <input matInput formControlName="street">
+                    <!-- <mat-error *ngIf="city?.hasError('required')">
+                        City is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>PIN Code</mat-label>
+                    <input matInput formControlName="pincode">
+                    <!-- <mat-error *ngIf="city?.hasError('required')">
+                        City is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+
+            </form>
+        <!-- </div> -->
+
+        <!-- <div class="fourthField" fxLayout="row" fxLayoutGap="10px"> -->
+
+            <form [formGroup]="toAddress" class="fourthField" fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>State</mat-label>
+                    <mat-select #State formControlName="state">
+                        <mat-option (click)="submit(State.value)" value="{{state._id}}" *ngFor="let state of stateData">
+                            {{state.name}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="state?.hasError('required')">
+                        State is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option value="{{city._id}}" *ngFor="let city of cityData">{{city.name}}</mat-option>
+                    </mat-select>
+                    <!-- <mat-error *ngIf="city?.hasError('required')">
+                        City is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Street</mat-label>
+                    <input matInput formControlName="street">
+                    <!-- <mat-error *ngIf="city?.hasError('required')">
+                        City is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>PIN Code</mat-label>
+                    <input matInput formControlName="pincode">
+                    <!-- <mat-error *ngIf="city?.hasError('required')">
+                        City is <strong>required</strong>
+                    </mat-error> -->
+                </mat-form-field>
+
+            </form>
+
+        <!-- </div> -->
+
+        <div class="fifthField" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <button class="close" mat-button mat-dialog-close>Close</button>
+            <button class="submit" mat-raised-button>Submit</button>
+        </div>
+
+    </form>
+</div>

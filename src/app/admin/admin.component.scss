@@ -1,0 +1,106 @@
+.upperHeader {
+    z-index: 2;
+}
+.lowerHeader {
+    background-color: rgb(232, 234, 235);
+}
+
+.sideContentPart {
+    width: auto;
+    height: 100%;
+}
+.sideContentPart div {
+    background-color: white;
+    padding: 10px;
+}
+.sideContentPart div h1 {
+    margin: 0px;
+    font-size: 24px;
+    color: rgb(42, 117, 187);
+    font-weight: 500;
+    text-shadow: 3px 2px 2px rgb(61, 140, 214);
+}
+.sideContentPart div img {
+    width: 43px;
+    height: 43px;
+    border: 2px solid red;
+}
+@keyframes bottomTopSlow {
+    from {
+        top: 0px;
+        // background-color: yellow;
+    }
+    to {
+        top: 20px;
+        // background-color: blue;
+    }
+}
+mat-drawer {
+    width: 220px;
+    max-width: 220px;
+    min-width: 220px;
+    background-color: rgb(49, 103, 153);
+}
+
+mat-drawer-content {
+    background-color: rgb(232, 234, 235);
+}
+
+.lowerHeader .sideBar {
+    background-color: rgb(49, 103, 153);
+    box-shadow: 0 10px 16px 4px rgba(82, 79, 79, 0.788);
+    max-width: 240px;
+    min-width: 240px;
+}
+
+.upperHeader h1 {
+    margin: 0px;
+    font-size: 30px;
+    color: rgb(42, 117, 187);
+    font-weight: 500;
+    text-shadow: 3px 2px 2px rgb(61, 140, 214);
+}
+
+.upperHeader img {
+    width: 50px;
+    height: 50px;
+    // animation: bottomTopSlow 4s ease-in-out infinite;
+    // animation-name: bottomTopSlow;
+    // animation-duration: 5s;
+    // animation-delay: 2s;
+    // animation-fill-mode: both;
+}
+.upperHeader div {
+    margin-left: 20px;
+}
+.icon {
+    position: relative;
+}
+.account {
+    color: rgb(61, 140, 214);
+    font-size: 42px;
+    padding-top: 5px;
+    margin-right: 40px;
+}
+.drawer {
+    margin-left: 10px;
+    padding-top: 5px;
+    color: rgb(61, 140, 214);
+}
+.create {
+    font-size: 30px;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+}
+.firstNav {
+    padding-right: 8px;
+    padding-top: 20px;
+}
+.leftContent {
+    margin-left: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 28px;
+    color: rgb(61, 140, 214);
+}

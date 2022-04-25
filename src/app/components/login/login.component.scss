@@ -1,0 +1,162 @@
+.imageContainer {
+    height: 100%;
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+}
+
+.container .leftFlex {
+    width: 450px;
+    min-width: 450px;
+    max-width: 450px;
+}
+
+.container .leftFlex .title {
+    margin-bottom: 30px;
+}
+
+.container .leftFlex .title h1 {
+    margin: 0px;
+    font-size: 35px;
+    color: rgb(42, 117, 187);
+    font-weight: 500;
+    text-shadow: 3px 2px 2px rgb(61, 140, 214);
+}
+
+.container .leftFlex .title img {
+    width: 65px;
+    height: 65px;
+}
+
+form {
+    width: 500px;
+    height: 500px;
+    margin: 10px;
+}
+
+input {
+    border-radius: 4px;
+    width: 380px;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    position: relative;
+    display: block;
+    outline: none;
+    color: #333;
+    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    border: 2px solid rgb(22, 106, 185);
+}
+
+label {
+    font-size: 15px;
+}
+
+.mat-divider {
+    border-top-color: rgb(102, 101, 101);
+    width: 380px;
+}
+
+button {
+    background-image: linear-gradient(to right, rgb(51, 138, 219), rgb(49, 103, 153), rgb(51, 138, 219));
+    font-size: 15px;
+    width: 390px;
+    color: white !important;
+}
+
+a {
+    font-size: 15px;
+    color: rgb(22, 106, 185);
+    font-weight: 450;
+    text-decoration: none;
+}
+a:hover {
+    cursor: pointer;
+    font-weight: 590;
+    color: rgb(43, 91, 136);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.container .rightFlex {
+    position: relative;
+    background-color: white;
+}
+
+.container .rightFlex h1 {
+    font-size: 50px;
+}
+
+.container .rightFlex img {
+    width: 100%;
+    height: 100%;
+}
+.container .rightFlex div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background: rgba(51, 138, 219, 0.5);
+}
+
+@media only screen and (max-width: 768px) {
+    .rightFlex {
+        display: none !important;
+    }
+
+    form {
+        padding: 15px;
+        box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .leftFlex {
+        min-width: 0 !important;
+    }
+    input,
+    .mat-divider {
+        width: 270px;
+    }
+    button {
+        width: 280px;
+    }
+    form {
+        width: 350px;
+        padding: 18px;
+    }
+    .title h1 {
+        font-size: 32px;
+    }
+    .title img {
+        width: 61px;
+        height: 61px;
+    }
+}

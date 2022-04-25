@@ -1,0 +1,62 @@
+<div class="imageContainer">
+    <!-- background image -->
+
+    <img src="assets/annie-spratt-pKpipZVVEC0-unsplash.jpg">
+
+</div>
+
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div class="leftFlex" fxLayout="row" fxLayoutAlign="center center" fxFlex="30">
+
+        <!-- form field -->
+
+        <form [formGroup]="formDetail" (ngSubmit)="submitLoginData()" fxLayout="column"
+            fxLayoutAlign="space-evenly center">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" class="title">
+                <img src="assets/shopping-icon-2184065_1280.webp">
+                <h1>E SHOP STOP</h1>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="5px" class="email">
+                <label>Email <mat-error>*</mat-error></label>
+                <input type="email" formControlName="email">
+                <mat-error *ngIf="formValidation('email')?.hasError('required') && formValidation('email')?.touched">
+                    Email is <strong>required</strong> </mat-error>
+                <mat-error *ngIf="formValidation('email')?.hasError('pattern')">
+                    Enter valid <strong>Email</strong>
+                </mat-error>
+            </div>
+
+            <div fxLayout="column" fxLayoutGap="5px" class="password">
+                <label>Password <mat-error>*</mat-error></label>
+                <input type="password" formControlName="password">
+                <mat-error
+                    *ngIf="formValidation('password')?.hasError('required') && formValidation('password')?.touched">
+                    Password is <strong>Required</strong>
+                </mat-error>
+                <!-- <mat-error *ngIf="formValidation('password')?.hasError('pattern')">
+                    Password must contain<strong>alphabet and special character</strong>
+                </mat-error> -->
+            </div>
+
+            <button mat-raised-button [disabled]="formDetail.invalid">Login</button>
+
+            <a routerLink="/forgotPassword">Forgot Password?</a>
+
+            <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="25px">
+                <div>
+                    <mat-divider></mat-divider>
+                </div>
+
+                <button routerLink="/sign-up" mat-raised-button>Create an Account</button>
+
+                <router-outlet></router-outlet>
+            </div>
+        </form>
+    </div>
+
+    <div class="rightFlex" fxLayout="row" fxLayoutAlign="start center">
+        <img src="assets/shopping3.png">
+        <div></div>
+    </div>
+</div>

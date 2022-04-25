@@ -1,0 +1,17 @@
+div {
+    h1 {
+        font-size: 25px;
+        color: rgb(42, 117, 187);
+        font-weight: 500;
+    }
+    div {
+        .fontClass {
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    button {
+        color: white;
+        background-image: linear-gradient(to right, rgb(49, 103, 153), rgb(51, 138, 219), rgb(49, 103, 153));
+    }
+}

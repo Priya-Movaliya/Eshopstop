@@ -1,0 +1,152 @@
+<div class="formContainer">
+
+    <form [formGroup]="formDetail" (ngSubmit)="submitOrderData()" (keyup)="formclick()" class="partyForm"
+        fxLayout="column">
+        <ng-content select=".header"></ng-content>
+
+        <fieldset class="product">
+            <legend>Product Details</legend>
+
+            <div class="firstField row" fxLayout="row" fxLayoutGap="10px">
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Product SKU</mat-label>
+                    <mat-select formControlName="productSku">
+                        <mat-option value="{{psku.sku}}" *ngFor="let psku of productSKU">{{psku.sku}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+        </fieldset>
+        <fieldset class="party">
+            <legend>Party Details</legend>
+
+            <div class="secondField row" fxLayout="row" fxLayoutGap="10px">
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Party SKU</mat-label>
+                    <mat-select formControlName="partySku">
+                        <mat-option value="{{psku.sku}}" *ngFor="let psku of partySKU">{{psku.sku}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="order row">
+            <legend>Order Details</legend>
+            <div class="thirdField row" fxLayout="row" fxLayoutGap="10px">
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Order Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Order Date</mat-label>
+                    <input type="date" matInput formControlName="date">
+                </mat-form-field>
+
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>Order Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="orderDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> -->
+
+            </div>
+
+            <div class="fourthField row" fxLayout="row" fxLayoutGap="10px">
+
+                <mat-form-field (click)="color('color')" class="example-chip-list" appearance="outline">
+                    <mat-label>Colors</mat-label>
+                    <mat-chip-list #chipList aria-label="Fruit selection">
+                        <mat-chip *ngFor="let color of colorsData" (removed)="remove(color)">
+                            {{color}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip>
+                        <input placeholder="New color..." [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+
+
+                <mat-form-field (click)="size('size')" class="example-chip-list" appearance="outline">
+                    <mat-label>Sizes</mat-label>
+                    <mat-chip-list #chipList1 aria-label="Fruit selection">
+                        <mat-chip *ngFor="let size of sizesData" (removed)="remove(size)">
+                            {{size}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip>
+                        <input placeholder="New size..." [matChipInputFor]="chipList1"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </mat-form-field>
+
+            </div>
+
+            <div class="fifthField row" fxLayout="row" fxLayoutGap="10px">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Rate</mat-label>
+                    <input matInput type="number" #rate (keyup)="rateData(rate.value)" formControlName="rate">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput type="number" #quantity (keyup)="quantityData(quantity.value)"
+                        formControlName="quantity">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Amount</mat-label>
+                    <input matInput formControlName="amount">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Discount%</mat-label>
+                    <input type="text" matInput #discount (keyup)="discountData(discount.value)" formControlName="discount">
+                </mat-form-field>
+
+            </div>
+
+            <div class="sixthField row" fxLayout="row" fxLayoutGap="10px">
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput formControlName="total">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Shipping Mode</mat-label>
+                    <mat-select formControlName="shippingMode">
+                        <mat-option value="handtohand">Hand to Hand</mat-option>
+                        <mat-option value="shipping">Shipping</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Payment Mode</mat-label>
+                    <mat-select formControlName="paymentMode">
+                        <mat-option value="cash">Cash</mat-option>
+                        <mat-option value="payondelivery">Pay on Delivery</mat-option>
+                        <mat-option value="gpay">Gpay</mat-option>
+                        <mat-option value="paytm">Paytm</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <ng-content></ng-content>
+
+            </div>
+
+            <div class="seventhField" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <button class="close" mat-button mat-dialog-close>Close</button>
+                <button class="submit" mat-raised-button>Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</div>

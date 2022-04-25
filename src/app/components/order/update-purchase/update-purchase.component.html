@@ -1,0 +1,9 @@
+<app-updatecourier>
+    <div class="header">Purchase</div>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Buyer Party SKU</mat-label>
+        <mat-select formControlName="buyerPartySku">
+            <mat-option value="{{psku.sku}}" *ngFor="let psku of buyerPartySKU">{{psku.sku}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</app-updatecourier>

@@ -1,0 +1,70 @@
+<div fxLayout="column" class="container" fxFill>
+    <nav class="firstNav" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="6">
+        <div class="leftContent">Order Details</div>
+        <div class="rightContent">
+            <input placeholder="Search Order">
+            <mat-icon>search</mat-icon>
+        </div>
+    </nav>
+
+    <nav class="secondNav" fxLayout="row" fxLayoutAlign="end center" fxFlex="6">
+        <button mat-raised-button (click)="openPurchaseDialog()">+ Add Purchase Order</button>
+        <button mat-raised-button (click)="openSellDialog()">+ Add Sell Order</button>
+    </nav>
+
+    <div class="tableContainer mat-elevation-z8">
+
+        <div style="overflow-x: auto; ">
+            <table>
+                <tr>
+                    <th>Sr.No.</th>
+                    <th>Product SKU</th>
+                    <th>Party SKU</th>
+                    <th>Order Name</th>
+                    <th>Rate</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+
+                </tr>
+                <tr *ngFor="let item of partyData;  index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{item.productSku}}</td>
+                    <td>{{item.partySku}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.rate}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.total}}</td>
+                    <td>{{item.type}}</td>
+
+                    <td>
+                        <button class="visibility" (click)="visibility(item._id)" mat-mini-fab matTooltip="view Data">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button class="update" (click)="update(item._id)" mat-mini-fab matTooltip="Update Data">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button class="delete" (click)="delete(item._id)" mat-mini-fab matTooltip="Delete Data">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+
+
+                </tr>
+
+            </table>
+
+            <mat-paginator (click)="submit(pageEvent?.pageSize , pageEvent?.pageIndex)" [length]="length"
+                [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"
+                aria-label="Select page">
+            </mat-paginator>
+
+
+        </div>
+
+
+
+    </div>
+
+</div>

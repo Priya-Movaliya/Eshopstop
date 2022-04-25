@@ -1,0 +1,68 @@
+.formContainer {
+    width: 100%;
+}
+.formContainer .partyForm .header {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: rgb(42, 117, 187);
+    font-weight: 500;
+}
+.formContainer .partyForm img {
+    // position: absolute !important;
+    width: 60px;
+    height: 60px;
+    top: 10px;
+}
+.example-chip-list {
+    width: 100%;
+}
+mat-form-field {
+    width: 100%;
+}
+legend {
+    font-size: 18px;
+    color: rgb(42, 117, 187);
+}
+.party,
+.product {
+    padding: 20px;
+}
+.order {
+    padding: 28px;
+}
+fieldset {
+    margin: 15px 0px 15px 0px;
+    border-radius: 4px;
+}
+.formContainer .partyForm .seventhField * {
+    width: 20%;
+}
+.formContainer .partyForm .seventhField .submit {
+    color: white;
+    background-image: linear-gradient(to right, rgb(49, 103, 153), rgb(51, 138, 219), rgb(49, 103, 153));
+}
+.formContainer .partyForm .seventhField *:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+.formContainer .partyForm .seventhField .close {
+    color: black;
+    background-color: #00000027;
+}
+@media screen and (max-width: 960px) {
+    .formContainer {
+        .partyForm {
+            width: 60vw;
+            height: 70vh;
+            .row {
+                flex-direction: column !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 425px) {
+    .formContainer .partyForm .header {
+        font-size: 20px;
+    }
+}

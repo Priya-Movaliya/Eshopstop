@@ -1,0 +1,47 @@
+.formContainer {
+    width: 600px;
+
+    .productForm {
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 25px;
+            color: rgb(42, 117, 187);
+            font-weight: 500;
+        }
+        .seventhField * {
+            width: 100px;
+        }
+        .seventhField .submit {
+            color: white;
+            background-image: linear-gradient(to right, rgb(49, 103, 153), rgb(51, 138, 219), rgb(49, 103, 153));
+        }
+        .seventhField *:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+        }
+        .seventhField .close {
+            color: black;
+            background-color: #00000027;
+        }
+        mat-form-field {
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    .formContainer {
+        width: 50vw;
+        .productForm {
+            width: 50vw;
+            .row {
+                flex-direction: column !important;
+            }
+        }
+    }
+}
+@media screen and (max-width: 425px) {
+    .formContainer .productForm .header {
+        font-size: 20px;
+    }
+}

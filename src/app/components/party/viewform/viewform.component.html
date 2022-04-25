@@ -1,0 +1,44 @@
+<div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="space-around center">
+
+    <h1>View Party Details</h1>
+
+    <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="space-around start">
+        <mat-list>
+            <mat-list-item><b class="fontClass">Party Name :</b> &nbsp; {{partyData.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Party SKU : </b> &nbsp; {{partyData.sku}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Alias Name : </b> &nbsp; {{partyData.alias}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Group Name : </b> &nbsp; {{partyData.groupName}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Type : </b> &nbsp; {{partyData.type}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Email : </b> &nbsp; {{partyData.email}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Contact Number : </b> &nbsp; {{partyData.contactNo}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Adhaar Card : </b> &nbsp; {{partyData.adharcardNo}}</mat-list-item>
+
+        </mat-list>
+
+        <mat-list>
+            <mat-list-item><b class="fontClass">PAN Card : </b> &nbsp; {{partyData.pancardNo}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">GST number : </b> &nbsp; {{partyData.gstNo}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Adress : </b> &nbsp; {{partyData.address}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Area : </b> &nbsp; {{partyData.area}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">State : </b> &nbsp; {{partyData.state.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">City : </b> &nbsp; {{partyData.city.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">PIN Code : </b> &nbsp; {{partyData.pincode}}</mat-list-item>
+        </mat-list>
+    </div>
+
+    <button class="close" mat-button mat-dialog-close>Close</button>
+
+</div>

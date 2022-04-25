@@ -1,0 +1,56 @@
+<div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="space-around center">
+
+    <h1>View Order Details</h1>
+
+    <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="space-around start">
+        <mat-list>
+
+            <mat-list-item><b class="fontClass">Company Name : </b> &nbsp; {{courierData.companyName}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Tracking Id : </b> &nbsp; {{courierData.trackingId}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Shipping Charge : </b> &nbsp; {{courierData.shippingCharge}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Order Id : </b> &nbsp; {{courierData.orderId}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Payment Mode : </b> &nbsp; {{courierData.paymentMode}}</mat-list-item>
+
+
+        </mat-list>
+
+        <mat-list>
+
+            <mat-list-item><b class="fontClass">From Address : </b> </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item><b class="fontClass">State : </b> &nbsp; {{courierData.fromAddress.state.name}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">City : </b> &nbsp; {{courierData.fromAddress.city.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">PIN Code : </b> &nbsp; {{courierData.fromAddress.pincode}}
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Street </b> &nbsp; {{courierData.fromAddress.street}}</mat-list-item>
+
+        </mat-list>
+
+        <mat-list>
+
+            <mat-list-item><b class="fontClass">To Address : </b> </mat-list-item>
+            <mat-divider></mat-divider>
+
+            <mat-list-item><b class="fontClass">State : </b> &nbsp; {{courierData.toAddress.state.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">City : </b> &nbsp; {{courierData.toAddress.city.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">PIN Code : </b> &nbsp; {{courierData.toAddress.pincode}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">Street </b> &nbsp; {{courierData.toAddress.street}}</mat-list-item>
+
+        </mat-list>
+    </div>
+
+    <button class="close" mat-button mat-dialog-close>Close</button>
+</div>

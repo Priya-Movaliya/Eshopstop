@@ -1,0 +1,13 @@
+// ::ng-deep .mat-snack-bar-container {
+//     opacity: 0.9 !important;
+    
+// }
+::ng-deep .successSnack {
+    background-color: rgb(42, 117, 187) !important;
+    opacity: 0.9 !important;
+}
+
+::ng-deep .errorSnack {
+    background-color: rgb(189, 61, 61) !important;
+    opacity: 0.8 !important;
+}

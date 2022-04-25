@@ -1,0 +1,37 @@
+<div fxLayout="column" fxLayoutGap="30px" fxLayoutAlign="space-around center">
+
+    <h1>View Order Details</h1>
+
+    <div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="space-around start">
+        <mat-list>
+
+            <mat-list-item><b class="fontClass">Product Sku : </b> &nbsp; {{orderData.productSku}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">partySku : </b> &nbsp; {{orderData.partySku}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">name : </b> &nbsp; {{orderData.name}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">date : </b> &nbsp; {{orderData.date}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">type : </b> &nbsp; {{orderData.type}}</mat-list-item>
+
+
+        </mat-list>
+
+        <mat-list>
+
+            <mat-list-item><b class="fontClass">colors : </b> &nbsp; {{orderData.colors}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">sizes : </b> &nbsp; {{orderData.sizes}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">rate : </b> &nbsp;{{orderData.rate}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">quantity : </b> &nbsp; {{orderData.quantity}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b class="fontClass">_id : </b> &nbsp; {{orderData._id}}</mat-list-item>
+
+        </mat-list>
+    </div>
+
+    <button class="close" mat-button mat-dialog-close>Close</button>
+</div>

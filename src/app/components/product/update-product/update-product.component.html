@@ -1,0 +1,108 @@
+<div class="formContainer">
+    <form [formGroup]="formDetail" (ngSubmit)="onClickSubmit()" class="productForm" fxLayout="column">
+
+        <div class="header row">Update Product Details</div>
+
+        <div class="firstField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Product Name</mat-label>
+                <input matInput type="text" formControlName="name">
+                <mat-error *ngIf="name?.hasError('required')">
+                    Product Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>SKU</mat-label>
+                <input matInput type="text" formControlName="sku">
+                <mat-error *ngIf="sku?.hasError('required')">
+                    SKU is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div class="secondField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Alias Name</mat-label>
+                <input matInput type="text" formControlName="alias">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    <mat-option value="{{item._id}}" *ngFor="let item of categoryList">{{item.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="category?.hasError('required')">
+                    Category is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="thirdField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput type="text" formControlName="description">
+                <mat-error *ngIf="description?.hasError('required')">
+                    Description is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="fourthField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Purchase Rate</mat-label>
+                <input matInput type="text" formControlName="purchaseRate">
+                <mat-error *ngIf="purchase?.hasError('required')">
+                    Purchase Rate is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Sell Rate</mat-label>
+                <input matInput type="text" formControlName="sellRate">
+                <mat-error *ngIf="sell?.hasError('required')">
+                    Sell Rate is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="fifthField row" fxLayout="row" fxLayoutGap="10px">
+            <mat-form-field (click)="color('color')" class="example-chip-list" appearance="outline">
+                <mat-label>Colors</mat-label>
+                <mat-chip-list #chipList aria-label="Fruit selection">
+                    <mat-chip *ngFor="let color of colorsData" (removed)="remove(color)">
+                        {{color}}
+                        <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip>
+                    <input placeholder="New color..." [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+
+            <mat-form-field (click)="size('size')" class="example-chip-list" appearance="outline">
+                <mat-label>Sizes</mat-label>
+                <mat-chip-list #chipList1 aria-label="Fruit selection">
+                    <mat-chip *ngFor="let size of sizesData" (removed)="remove(size)">
+                        {{size}}
+                        <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip>
+                    <input placeholder="New size..." [matChipInputFor]="chipList1"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+
+        <div class="seventhField" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <button class="close" mat-button mat-dialog-close>Close</button>
+            <button class="submit" mat-raised-button>Submit</button>
+        </div>
+
+    </form>
+</div>
